@@ -83,7 +83,7 @@ class TFI: # this handles the transverse field Ising model Hamiltonian to comput
             shifts=-1,
             dims=1
         )
-        return -interaction.sum(dim=1)
+        return interaction.sum(dim=1)
 
     def _flip_spin(self, s, i):
                 s_flipped = s.clone()
@@ -106,7 +106,7 @@ class TFI: # this handles the transverse field Ising model Hamiltonian to comput
             for i in range(self.N)
         ])
 
-        return -self.h * ratios.sum(dim=0)
+        return ratios.sum(dim=0)
 
     def loc_energy(self, s, wavefunction):
 
